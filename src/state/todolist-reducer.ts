@@ -34,7 +34,7 @@ type MainType = removeTodolistACType
 | changeTodolistTitleACType 
 | changeTodolistFilterACType
 
-type removeTodolistACType = ReturnType<typeof removeTodolistAC>
+export type removeTodolistACType = ReturnType<typeof removeTodolistAC>
 
 export const removeTodolistAC = (todolistId: string) => {
     return {
