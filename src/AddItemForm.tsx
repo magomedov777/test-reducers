@@ -4,7 +4,9 @@ import {AddBox} from "@mui/icons-material";
 
 
 
-
+type AddItemFormPropsType = {
+    addItem: (title: string) => void
+}
 
 export function AddItemForm(props: AddItemFormPropsType) {
 
