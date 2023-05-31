@@ -50,9 +50,9 @@ function AppWithReducers() {
         // tasks[todolistId] = todolistTasks.filter(t => t.id != id);
         // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         // setTasks({...tasks});
-        const action = removeTaskAC(id, todolistId)
-        dispatchToTasks(action)
-        // dispatchToTasks(removeTaskAC(id, todolistId))
+        // const action = removeTaskAC(id, todolistId)
+        // dispatchToTasks(action)
+        dispatchToTasks(removeTaskAC(id, todolistId))
     }
 
     function addTask(title: string, todolistId: string) {
@@ -63,8 +63,9 @@ function AppWithReducers() {
         // tasks[todolistId] = [task, ...todolistTasks];
         // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         // setTasks({...tasks});
-        const action = addTaskAC(title, todolistId)
-        dispatchToTasks(action)
+        // const action = addTaskAC(title, todolistId)
+        // dispatchToTasks(action)
+        dispatchToTasks(addTaskAC(title, todolistId))
 
     }
 
@@ -78,8 +79,9 @@ function AppWithReducers() {
         //     task.isDone = isDone;
         //     // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         //     setTasks({...tasks});
-        const action = changeTaskStatusAC(id, isDone, todolistId)
-        dispatchToTasks(action)
+        // const action = changeTaskStatusAC(id, isDone, todolistId)
+        // dispatchToTasks(action)
+        dispatchToTasks(changeTaskStatusAC(id, isDone, todolistId))
         }
     
 
@@ -93,8 +95,9 @@ function AppWithReducers() {
         //     task.title = newTitle;
         //     // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         //     setTasks({...tasks});
-        const action = changeTaskTitleAC(id, newTitle, todolistId)
-        dispatchToTasks(action)
+        // const action = changeTaskTitleAC(id, newTitle, todolistId)
+        // dispatchToTasks(action)
+        dispatchToTasks(changeTaskTitleAC(id, newTitle, todolistId))
         }
     
 
@@ -104,8 +107,9 @@ function AppWithReducers() {
         //     todolist.filter = value;
         //     setTodolists([...todolists])
         // }
-        const action = changeTodolistFilterAC(todolistId, value)
-        dispatchToTodolists(action)
+        // const action = changeTodolistFilterAC(todolistId, value)
+        // dispatchToTodolists(action)
+        dispatchToTodolists(changeTodolistFilterAC(todolistId, value))
     }
 
     function removeTodolist(id: string) {
@@ -115,8 +119,11 @@ function AppWithReducers() {
         // delete tasks[id]; // удаляем св-во из объекта... значением которого являлся массив тасок
         // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         // setTasks({...tasks});
-        const action = removeTodolistAC(id)
-        dispatchToTodolists(action)
+        // const action = removeTodolistAC(id)
+        // dispatchToTodolists(action)
+        // dispatchToTasks(action)
+        dispatchToTodolists(removeTodolistAC(id))
+        dispatchToTasks(removeTodolistAC(id))
     }
 
     function changeTodolistTitle(id: string, title: string) {
@@ -126,8 +133,9 @@ function AppWithReducers() {
         //     // если нашёлся - изменим ему заголовок
         //     todolist.title = title;
         //     setTodolists([...todolists]);
-        const action = changeTodolistTitleAC(id, title)
-        dispatchToTodolists(action)
+        // const action = changeTodolistTitleAC(id, title)
+        // dispatchToTodolists(action)
+        dispatchToTodolists(changeTodolistTitleAC(id, title))
         }
     
 
@@ -139,6 +147,9 @@ function AppWithReducers() {
         //     ...tasks,
         //     [newTodolistId]: []
         // })
+        // const action = addTodolistAC(title)
+        // dispatchToTodolists(action)
+        // dispatchToTasks(action)
         const action = addTodolistAC(title)
         dispatchToTodolists(action)
         dispatchToTasks(action)
