@@ -122,8 +122,9 @@ function AppWithReducers() {
         // const action = removeTodolistAC(id)
         // dispatchToTodolists(action)
         // dispatchToTasks(action)
-        dispatchToTodolists(removeTodolistAC(id))
-        dispatchToTasks(removeTodolistAC(id))
+        const action = removeTodolistAC(id)
+        dispatchToTodolists(action)
+        dispatchToTasks(action)
     }
 
     function changeTodolistTitle(id: string, title: string) {
