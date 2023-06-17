@@ -20,9 +20,7 @@ export type TodolistType = {
     filter: FilterValuesType
 }
 
-export type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
+
 
 
 function AppWithRedux() {
