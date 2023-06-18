@@ -40,9 +40,7 @@ export function Todolist(props: PropsType) {
         props.changeTodolistTitle(props.id, title);
     };
 
-    const onAllClickHandler = () => props.changeFilter("all", props.id);
-    const onActiveClickHandler = () => props.changeFilter("active", props.id);
-    const onCompletedClickHandler = () => props.changeFilter("completed", props.id);
+   
 
     const onChangeHandler = (tID: string, newIsDone: boolean) => {
         props.changeTaskStatus(tID, newIsDone, props.id);
