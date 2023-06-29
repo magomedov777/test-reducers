@@ -12,10 +12,7 @@ export type ChangeTaskTitleActionType = ReturnType<typeof changeTaskTitleAC>
 
 type ActionsType = RemoveTaskActionType
 | AddTaskActionType 
-| ChangeTaskStatusActionType 
-| ChangeTaskTitleActionType 
-| AddTodolistActionType 
-|removeTodolistACType
+
  
 const initialState: TasksStateType = {} 
   
