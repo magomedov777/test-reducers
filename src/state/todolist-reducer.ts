@@ -8,7 +8,6 @@ export type AddTodolistActionType = {
     todolistId: string
 }
 
-const initialState: TodolistType[] = []
 
 export const TodolistsReducer = (state = initialState, action: TodolistMainType): TodolistType[] => {
     switch(action.type) {
