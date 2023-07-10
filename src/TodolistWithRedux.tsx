@@ -56,7 +56,9 @@ export function TodolistWithRedux({todolist}: PropsType) {
         dispatch(changeTodolistTitleAC(id, title))
     };
 
-   
+    const onAllClickHandler = () => dispatch(changeTodolistFilterAC(id, "all"))
+    const onActiveClickHandler = () => dispatch(changeTodolistFilterAC(id, "active"))
+    const onCompletedClickHandler = () => dispatch(changeTodolistFilterAC(id, "completed"))
 
     if (filter === "active") {
         tasks = tasks.filter(t => t.isDone === false);
