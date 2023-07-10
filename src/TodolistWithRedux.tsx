@@ -86,9 +86,7 @@ export function TodolistWithRedux({todolist}: PropsType) {
                     const onClickHandler = () => dispatch(removeTaskAC(t.id, id))
 
 
-                    const onTitleChangeHandler = (newValue: string) => {
-                        // props.changeTaskTitle(t.id, newValue, props.id);
-                        dispatch(changeTaskTitleAC(t.id, newValue, id))
+                    
 
                     }
 
