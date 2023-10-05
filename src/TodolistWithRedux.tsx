@@ -46,6 +46,11 @@ export function TodolistWithRedux({ todolist }: PropsType) {
 
 
 
+    const onChangeHandler = (tID: string, newIsDone: boolean) => {
+        // props.changeTaskStatus(tID, newIsDone, props.id);
+        dispatch(changeTaskStatusAC(tID, newIsDone, id))
+
+    }
 
     return <div>
         <h3> <EditableSpan value={title} onChange={changeTodolistTitle} />
