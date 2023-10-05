@@ -40,7 +40,10 @@ export function TodolistWithRedux({ todolist }: PropsType) {
 
 
 
-
+    const removeTodolist = () => {
+        // props.removeTodolist(props.id);
+        dispatch(removeTodolistAC(id))
+    };
     const changeTodolistTitle = (title: string) => {
         // props.changeTodolistTitle(props.id, title);
         dispatch(changeTodolistTitleAC(id, title))
