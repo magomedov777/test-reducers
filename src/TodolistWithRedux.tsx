@@ -41,7 +41,10 @@ export function TodolistWithRedux({ todolist }: PropsType) {
 
 
 
-
+    const changeTodolistTitle = (title: string) => {
+        // props.changeTodolistTitle(props.id, title);
+        dispatch(changeTodolistTitleAC(id, title))
+    };
 
     const onAllClickHandler = () => dispatch(changeTodolistFilterAC(id, "all"))
     const onActiveClickHandler = () => dispatch(changeTodolistFilterAC(id, "active"))
