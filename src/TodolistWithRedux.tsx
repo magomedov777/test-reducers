@@ -38,6 +38,7 @@ type PropsType = {
 export function TodolistWithRedux({ todolist }: PropsType) {
 
 
+    const dispatch = useDispatch()
 
     const addTask = (title: string) => {
         // props.addTask(title, props.id);
