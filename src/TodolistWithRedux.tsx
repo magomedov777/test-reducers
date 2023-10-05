@@ -44,7 +44,12 @@ export function TodolistWithRedux({ todolist }: PropsType) {
 
 
 
-
+    if (filter === "active") {
+        tasks = tasks.filter(t => t.isDone === false);
+    }
+    if (filter === "completed") {
+        tasks = tasks.filter(t => t.isDone === true);
+    }
 
     const onChangeHandler = (tID: string, newIsDone: boolean) => {
         // props.changeTaskStatus(tID, newIsDone, props.id);
