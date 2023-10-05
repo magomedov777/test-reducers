@@ -39,6 +39,10 @@ export function TodolistWithRedux({ todolist }: PropsType) {
 
 
 
+    const addTask = (title: string) => {
+        // props.addTask(title, props.id);
+        dispatch(addTaskAC(title, id))
+    };
 
     const removeTodolist = () => {
         // props.removeTodolist(props.id);
