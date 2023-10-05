@@ -37,6 +37,7 @@ type PropsType = {
 
 export function TodolistWithRedux({ todolist }: PropsType) {
 
+    let tasks = useSelector<AppRootStateType, Array<TaskType>>(state => state.tasks[id])
 
     const dispatch = useDispatch()
 
