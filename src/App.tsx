@@ -113,14 +113,15 @@ const App = () => {
         // setTasks({ ...tasks });
     }
 
-    function changeTodolistTitle(id: string, title: string) {
-        // найдём нужный todolist
-        const todolist = todolists.find(tl => tl.id === id);
-        if (todolist) {
-            // если нашёлся - изменим ему заголовок
-            todolist.title = title;
-            setTodolists([...todolists]);
-        }
+    const changeTodolistTitle = (id: string, title: string) => {
+        setTodolists(todolists.map(el => el.id === id ? { ...el, title } : el))
+        // // найдём нужный todolist
+        // const todolist = todolists.find(tl => tl.id === id);
+        // if (todolist) {
+        //     // если нашёлся - изменим ему заголовок
+        //     todolist.title = title;
+        //     setTodolists([...todolists]);
+        // }
     }
 
     function addTodolist(title: string) {
