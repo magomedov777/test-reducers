@@ -1,11 +1,11 @@
-import React, {Reducer, useReducer, useState} from 'react';
+import React, { FC, FC, Reducer, useReducer, useState } from 'react';
 import './App.css';
-import {TaskType, Todolist} from './Todolist';
-import {v1} from 'uuid';
-import {AddItemForm} from './AddItemForm';
+import { TaskType, Todolist } from './Todolist';
+import { v1 } from 'uuid';
+import { AddItemForm } from './AddItemForm';
 import AppBar from '@mui/material/AppBar/AppBar';
-import {Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
-import {Menu} from "@mui/icons-material";
+import { Button, Container, Grid, IconButton, Paper, Toolbar, Typography } from "@mui/material";
+import { Menu } from "@mui/icons-material";
 import { TodolistMainType, TodolistsReducer, addTodolistAC, changeTodolistFilterAC, changeTodolistTitleAC, removeTodolistAC } from './state/todolist-reducer';
 import { TasksReducer, addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC } from './state/tasks-reducer';
 
@@ -22,23 +22,23 @@ export type TasksStateType = {
 }
 
 
-function AppWithReducers() {
+const AppWithReducers: FC = memo(() => {
     let todolistId1 = v1();
     let todolistId2 = v1();
 
-    let [todolists, dispatchToTodolists] = useReducer(TodolistsReducer,[
-        {id: todolistId1, title: "What to learn", filter: "all"},
-        {id: todolistId2, title: "What to buy", filter: "all"}
+    let [todolists, dispatchToTodolists] = useReducer(TodolistsReducer, [
+        { id: todolistId1, title: "What to learn", filter: "all" },
+        { id: todolistId2, title: "What to buy", filter: "all" }
     ])
 
-    let [tasks, dispatchToTasks] = useReducer(TasksReducer,{
+    let [tasks, dispatchToTasks] = useReducer(TasksReducer, {
         [todolistId1]: [
-            {id: v1(), title: "HTML&CSS", isDone: true},
-            {id: v1(), title: "JS", isDone: true}
+            { id: v1(), title: "HTML&CSS", isDone: true },
+            { id: v1(), title: "JS", isDone: true }
         ],
         [todolistId2]: [
-            {id: v1(), title: "Milk", isDone: true},
-            {id: v1(), title: "React Book", isDone: true}
+            { id: v1(), title: "Milk", isDone: true },
+            { id: v1(), title: "React Book", isDone: true }
         ]
     });
 
@@ -82,8 +82,8 @@ function AppWithReducers() {
         // const action = changeTaskStatusAC(id, isDone, todolistId)
         // dispatchToTasks(action)
         dispatchToTasks(changeTaskStatusAC(id, isDone, todolistId))
-        }
-    
+    }
+
 
     function changeTaskTitle(id: string, newTitle: string, todolistId: string) {
         // //достанем нужный массив по todolistId:
@@ -98,8 +98,8 @@ function AppWithReducers() {
         // const action = changeTaskTitleAC(id, newTitle, todolistId)
         // dispatchToTasks(action)
         dispatchToTasks(changeTaskTitleAC(id, newTitle, todolistId))
-        }
-    
+    }
+
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
         // let todolist = todolists.find(tl => tl.id === todolistId);
@@ -137,8 +137,8 @@ function AppWithReducers() {
         // const action = changeTodolistTitleAC(id, title)
         // dispatchToTodolists(action)
         dispatchToTodolists(changeTodolistTitleAC(id, title))
-        }
-    
+    }
+
 
     function addTodolist(title: string) {
         // let newTodolistId = v1();
@@ -170,8 +170,8 @@ function AppWithReducers() {
                 </Toolbar>
             </AppBar>
             <Container fixed>
-                <Grid container style={{padding: "20px"}}>
-                    <AddItemForm addItem={addTodolist}/>
+                <Grid container style={{ padding: "20px" }}>
+                    <AddItemForm addItem={addTodolist} />
                 </Grid>
                 <Grid container spacing={3}>
                     {
@@ -187,7 +187,7 @@ function AppWithReducers() {
                             }
 
                             return <Grid key={tl.id} item>
-                                <Paper style={{padding: "10px"}}>
+                                <Paper style={{ padding: "10px" }}>
                                     <Todolist
                                         key={tl.id}
                                         id={tl.id}
@@ -210,6 +210,6 @@ function AppWithReducers() {
             </Container>
         </div>
     );
-}
+})
 
 export default AppWithReducers;
