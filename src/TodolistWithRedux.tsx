@@ -101,6 +101,5 @@ export const TodolistWithRedux: FC<Props> = memo(({ todolist }) => {
             </Button>
         </div>
     </div>
-}
-)
+})
 
