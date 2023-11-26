@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import './App.css';
 import { TaskType } from './Todolist';
-import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
 import AppBar from '@mui/material/AppBar/AppBar';
 import { Button, Container, Grid, IconButton, Paper, Toolbar, Typography } from "@mui/material";
@@ -51,7 +50,7 @@ const AppWithRedux: FC = memo(() => {
     // });
 
 
-    function removeTask(id: string, todolistId: string) {
+    const removeTask = useCallback((id: string, todolistId: string) => {
         // //достанем нужный массив по todolistId:
         // let todolistTasks = tasks[todolistId];
         // // перезапишем в этом объекте массив для нужного тудулиста отфилтрованным массивом:
@@ -61,7 +60,7 @@ const AppWithRedux: FC = memo(() => {
         // const action = removeTaskAC(id, todolistId)
         // dispatchToTasks(action)
         dispatch(removeTaskAC(id, todolistId))
-    }
+    }, [dispatch])
 
     function addTask(title: string, todolistId: string) {
         // let task = {id: v1(), title: title, isDone: false};
