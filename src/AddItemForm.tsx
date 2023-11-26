@@ -3,7 +3,6 @@ import { IconButton, TextField } from "@mui/material";
 import { AddBox } from "@mui/icons-material";
 
 
-
 type Props = {
     addItem: (title: string) => void
 }
