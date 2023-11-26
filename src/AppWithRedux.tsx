@@ -62,7 +62,7 @@ const AppWithRedux: FC = memo(() => {
         dispatch(removeTaskAC(id, todolistId))
     }, [dispatch])
 
-    function addTask(title: string, todolistId: string) {
+    const addTask = useCallback((title: string, todolistId: string) => {
         // let task = {id: v1(), title: title, isDone: false};
         // //достанем нужный массив по todolistId:
         // let todolistTasks = tasks[todolistId];
@@ -74,7 +74,7 @@ const AppWithRedux: FC = memo(() => {
         // dispatchToTasks(action)
         dispatch(addTaskAC(title, todolistId))
 
-    }
+    }, [dispatch])
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
         // //достанем нужный массив по todolistId:
