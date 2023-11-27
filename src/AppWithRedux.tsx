@@ -92,7 +92,7 @@ const AppWithRedux: FC = memo(() => {
     }, [dispatch])
 
 
-    function changeTaskTitle(id: string, newTitle: string, todolistId: string) {
+    const changeTaskTitle = useCallback((id: string, newTitle: string, todolistId: string) => {
         // //достанем нужный массив по todolistId:
         // let todolistTasks = tasks[todolistId];
         // // найдём нужную таску:
@@ -105,7 +105,7 @@ const AppWithRedux: FC = memo(() => {
         // const action = changeTaskTitleAC(id, newTitle, todolistId)
         // dispatchToTasks(action)
         dispatch(changeTaskTitleAC(id, newTitle, todolistId))
-    }
+    }, [dispatch])
 
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
