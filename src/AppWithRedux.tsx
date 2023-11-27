@@ -51,73 +51,27 @@ const AppWithRedux: FC = memo(() => {
 
 
     const removeTask = useCallback((id: string, todolistId: string) => {
-        // //достанем нужный массив по todolistId:
-        // let todolistTasks = tasks[todolistId];
-        // // перезапишем в этом объекте массив для нужного тудулиста отфилтрованным массивом:
-        // tasks[todolistId] = todolistTasks.filter(t => t.id != id);
-        // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
-        // setTasks({...tasks});
-        // const action = removeTaskAC(id, todolistId)
-        // dispatchToTasks(action)
         dispatch(removeTaskAC(id, todolistId))
     }, [dispatch])
 
     const addTask = useCallback((title: string, todolistId: string) => {
-        // let task = {id: v1(), title: title, isDone: false};
-        // //достанем нужный массив по todolistId:
-        // let todolistTasks = tasks[todolistId];
-        // // перезапишем в этом объекте массив для нужного тудулиста копией, добавив в начало новую таску:
-        // tasks[todolistId] = [task, ...todolistTasks];
-        // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
-        // setTasks({...tasks});
-        // const action = addTaskAC(title, todolistId)
-        // dispatchToTasks(action)
         dispatch(addTaskAC(title, todolistId))
 
     }, [dispatch])
 
     const changeStatus = useCallback((id: string, isDone: boolean, todolistId: string) => {
-        // //достанем нужный массив по todolistId:
-        // let todolistTasks = tasks[todolistId];
-        // // найдём нужную таску:
-        // let task = todolistTasks.find(t => t.id === id);
-        // //изменим таску, если она нашлась
-        // if (task) {
-        //     task.isDone = isDone;
-        //     // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
-        //     setTasks({...tasks});
-        // const action = changeTaskStatusAC(id, isDone, todolistId)
-        // dispatchToTasks(action)
         dispatch(changeTaskStatusAC(id, isDone, todolistId))
     }, [dispatch])
 
 
     const changeTaskTitle = useCallback((id: string, newTitle: string, todolistId: string) => {
-        // //достанем нужный массив по todolistId:
-        // let todolistTasks = tasks[todolistId];
-        // // найдём нужную таску:
-        // let task = todolistTasks.find(t => t.id === id);
-        // //изменим таску, если она нашлась
-        // if (task) {
-        //     task.title = newTitle;
-        //     // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
-        //     setTasks({...tasks});
-        // const action = changeTaskTitleAC(id, newTitle, todolistId)
-        // dispatchToTasks(action)
         dispatch(changeTaskTitleAC(id, newTitle, todolistId))
     }, [dispatch])
 
 
-    function changeFilter(value: FilterValuesType, todolistId: string) {
-        // let todolist = todolists.find(tl => tl.id === todolistId);
-        // if (todolist) {
-        //     todolist.filter = value;
-        //     setTodolists([...todolists])
-        // }
-        // const action = changeTodolistFilterAC(todolistId, value)
-        // dispatchToTodolists(action)
+    const changeFilter = useCallback((value: FilterValuesType, todolistId: string) => {
         dispatch(changeTodolistFilterAC(todolistId, value))
-    }
+    }, [dispatch])
 
     function removeTodolist(id: string) {
         // // засунем в стейт список тудулистов, id которых не равны тому, который нужно выкинуть
