@@ -73,20 +73,9 @@ const AppWithRedux: FC = memo(() => {
         dispatch(changeTodolistFilterAC(todolistId, value))
     }, [dispatch])
 
-    function removeTodolist(id: string) {
-        // // засунем в стейт список тудулистов, id которых не равны тому, который нужно выкинуть
-        // setTodolists(todolists.filter(tl => tl.id != id));
-        // // удалим таски для этого тудулиста из второго стейта, где мы храним отдельно таски
-        // delete tasks[id]; // удаляем св-во из объекта... значением которого являлся массив тасок
-        // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
-        // setTasks({...tasks});
-        // const action = removeTodolistAC(id)
-        // dispatchToTodolists(action)
-        // dispatchToTasks(action)
-        // const action = removeTodolistAC(id)
+    const removeTodolist = useCallback((id: string) => {
         dispatch(removeTodolistAC(id))
-        // dispatchToTasks(action)
-    }
+    }, [dispatch])
 
     function changeTodolistTitle(id: string, title: string) {
         // // найдём нужный todolist
