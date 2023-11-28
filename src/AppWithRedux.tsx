@@ -82,21 +82,9 @@ const AppWithRedux: FC = memo(() => {
     }, [dispatch])
 
 
-    function addTodolist(title: string) {
-        // let newTodolistId = v1();
-        // let newTodolist: TodolistType = {id: newTodolistId, title: title, filter: 'all'};
-        // setTodolists([newTodolist, ...todolists]);
-        // setTasks({
-        //     ...tasks,
-        //     [newTodolistId]: []
-        // })
-        // const action = addTodolistAC(title)
-        // dispatchToTodolists(action)
-        // dispatchToTasks(action)
-        // const action = addTodolistAC(title)
+    const addTodolist = useCallback((title: string) => {
         dispatch(addTodolistAC(title))
-        // dispatchToTasks(action)
-    }
+    }, [dispatch])
 
     return (
         <div className="App">
