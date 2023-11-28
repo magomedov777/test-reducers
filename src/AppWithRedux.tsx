@@ -77,17 +77,9 @@ const AppWithRedux: FC = memo(() => {
         dispatch(removeTodolistAC(id))
     }, [dispatch])
 
-    function changeTodolistTitle(id: string, title: string) {
-        // // найдём нужный todolist
-        // const todolist = todolists.find(tl => tl.id === id);
-        // if (todolist) {
-        //     // если нашёлся - изменим ему заголовок
-        //     todolist.title = title;
-        //     setTodolists([...todolists]);
-        // const action = changeTodolistTitleAC(id, title)
-        // dispatchToTodolists(action)
+    const changeTodolistTitle = useCallback((id: string, title: string) => {
         dispatch(changeTodolistTitleAC(id, title))
-    }
+    }, [dispatch])
 
 
     function addTodolist(title: string) {
