@@ -47,9 +47,9 @@ export const Todolist: FC<Props> = memo(({ id, title, tasks, removeTask,
     const onActiveClickHandler = useCallback(() => changeFilter("active", id), [changeFilter, id])
     const onCompletedClickHandler = useCallback(() => changeFilter("completed", id), [changeFilter, id])
 
-    const onChangeHandler = (tID: string, newIsDone: boolean) => {
+    const onChangeHandler = useCallback((tID: string, newIsDone: boolean) => {
         changeTaskStatus(tID, newIsDone, id);
-    }
+    }, [changeTaskStatus, id])
 
     return <div>
         <h3> <EditableSpan value={title} onChange={changeTodolistTitleCallback} />
