@@ -43,9 +43,9 @@ export const Todolist: FC<Props> = memo(({ id, title, tasks, removeTask,
         changeTodolistTitle(id, title);
     }, [changeTodolistTitle, id])
 
-    const onAllClickHandler = () => changeFilter("all", id);
-    const onActiveClickHandler = () => changeFilter("active", id);
-    const onCompletedClickHandler = () => changeFilter("completed", id);
+    const onAllClickHandler = useCallback(() => changeFilter("all", id), [changeFilter, id])
+    const onActiveClickHandler = useCallback(() => changeFilter("active", id), [changeFilter, id])
+    const onCompletedClickHandler = useCallback(() => changeFilter("completed", id), [changeFilter, id])
 
     const onChangeHandler = (tID: string, newIsDone: boolean) => {
         changeTaskStatus(tID, newIsDone, id);
