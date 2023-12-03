@@ -21,9 +21,9 @@ export const EditableSpan: FC<Props> = memo(({ value, onChange }) => {
         onChange(title);
     }, [onChange, title])
 
-    const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
+    const changeTitle = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
-    }
+    }, [])
 
     return editMode
         ? <TextField variant="outlined"
