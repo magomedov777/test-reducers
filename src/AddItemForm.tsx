@@ -24,12 +24,12 @@ export const AddItemForm: FC<Props> = memo(({ addItem }) => {
         setTitle(e.currentTarget.value)
     }, [])
 
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    const onKeyPressHandler = useCallback((e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
         if (e.charCode === 13) {
             addItemCallback();
         }
-    }
+    }, [])
 
     return <div>
         <TextField variant="outlined"
