@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, KeyboardEvent, memo, useState } from 'react';
+import React, { ChangeEvent, FC, KeyboardEvent, memo, useCallback, useState } from 'react';
 import { IconButton, TextField } from "@mui/material";
 import { AddBox } from "@mui/icons-material";
 
@@ -20,9 +20,9 @@ export const AddItemForm: FC<Props> = memo(({ addItem }) => {
         }
     }
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
-    }
+    }, [])
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
